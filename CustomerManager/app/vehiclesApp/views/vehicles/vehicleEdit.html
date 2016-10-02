@@ -1,0 +1,217 @@
+﻿<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Vehicle</h3>
+        </header>
+        <form name="editForm" novalidate>
+            <div class="vehicleEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{ vm.vehicle.firstName + ' ' + vm.vehicle.lastName }} <span data-ng-hide="vm.vehicle.id == 0">(<a style="font-size:12pt" href="#/vehicleorders/{{vm.vehicle.id}}">View Vehicles</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        First Name:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="firstName" class="form-control" data-ng-model="vm.vehicle.firstName" required />
+                        <span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">
+                            First name is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Last Name:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="lastName" class="form-control" data-ng-model="vm.vehicle.lastName" required />
+                        <span class="errorMessage" ng-show="editForm.lastName.$touched && editForm.lastName.$invalid">
+                            Last name is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Gender:
+                    </div>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label class="radio">
+                                <input type="radio" name="gender" value="Male"
+                                       data-ng-checked="vm.vehicle.gender == 'Male'"
+                                       data-ng-model="vm.vehicle.gender" />
+                                Male
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="radio">
+                                <input type="radio" name="gender" value="Female"
+                                       data-ng-checked="vm.vehicle.gender == 'Female'"
+                                       data-ng-model="vm.vehicle.gender" />
+                                Female
+                                <br />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Vehicle No:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="vehicleNo" class="form-control" data-ng-model="vm.vehicle.vehicleNo" required />
+                        <span class="errorMessage" ng-show="editForm.vehicleNo.$touched && editForm.vehicleNo.$invalid">
+                            Vehicle No is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2">
+                        Engine No:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="engineNo" class="form-control" data-ng-model="vm.vehicle.engineNo" required />
+                        <span class="errorMessage" ng-show="editForm.engineNo.$touched && editForm.engineNo.$invalid">
+                            Engine No is required
+                        </span>
+                    </div>
+                </div>
+            
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Chesis No:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="chesisNo" class="form-control" data-ng-model="vm.vehicle.chesisNo" required />
+                        <span class="errorMessage" ng-show="editForm.chesisNo.$touched && editForm.chesisNo.$invalid">
+                            Chesis No is required
+                        </span>
+                    </div>
+                </div>
+        
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Model No:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="modelNo" class="form-control" data-ng-model="vm.vehicle.modelNo" required />
+                        <span class="errorMessage" ng-show="editForm.modelNo.$touched && editForm.modelNo.$invalid">
+                            Model No is required
+                        </span>
+                    </div>
+                </div>
+           
+                <br />
+           
+                <div class="row">
+                    <div class="col-md-2">
+                        Email:
+                    </div>
+                    <div class="col-md-10">
+                        <!-- allowInvalid added below so that the model isn't wiped
+                        out (the default behavior) if email is determined to be invalid due to being a duplicate-->
+                        <input type="text" name="email"
+                               class="form-control"
+                               data-ng-model="vm.vehicle.email"
+                               data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }"
+                               data-wc-unique
+                               data-wc-unique-key="{{vm.vehicle.id}}"
+                               data-wc-unique-property="email"
+                               data-ng-minlength="3"
+                               required />
+                        <!-- Show error if touched and unique is in error -->
+                        <span class="errorMessage" ng-show="editForm.email.$touched && editForm.email.$error.unique">
+                            Email already in use
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Address:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="address" class="form-control" data-ng-model="vm.vehicle.address" required />
+                        <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                            Address is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        City:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="city" class="form-control" data-ng-model="vm.vehicle.city" required />
+                        <span class="errorMessage" ng-show="editForm.city.$touched && editForm.city.$invalid">
+                            City is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        State:
+                    </div>
+                    <div class="col-md-10">
+                        <select name="state" required class="form-control"
+                                data-ng-model="vm.vehicle.stateId"
+                                data-ng-options="state.id as state.name for state in vm.states">
+                            <option value=""></option>
+                        </select>
+                        <span class="errorMessage" ng-show="editForm.state.$touched && editForm.state.$invalid">
+                            2 character state is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Zip:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="number" name="zip" class="form-control" data-ng-model="vm.vehicle.zip" required />
+                        <span class="errorMessage" ng-show="editForm.zip.$touched && editForm.zip.$invalid">
+                            Zip is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveVehicle()"
+                                ng-disabled="editForm.$invalid || !editForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.vehicle.id > 0" data-ng-click="vm.deleteVehicle()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Vehicle updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
